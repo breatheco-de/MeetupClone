@@ -11,8 +11,18 @@ export class Event extends React.Component {
 			<div className="jumbotron">
 				<Context.Consumer>
 					{({ store, actions }) => {
-						const eventObj = actions.getEvents(36);
-						return <p>{eventObj.ID}</p>;
+						let eidNumber = this.props.match.params.eid;
+						eidNumber = parseInt(eidNumber.replace(/[^a-zA-Z0-9]/g, ""));
+						var eventObj = [];
+						//eventObj = actions.getEvents(eidNumber);
+						console.log("eventObj ", this);
+
+						// console.log("this.props.match.params.eid  ", this.props.match.params.eid);
+						// console.log("eventObj ", eventObj);
+						// if (eventObj.length > 0) {
+						// 	console.log(eventObj.ID);
+						// }
+						// return <p>{eventObj.ID}</p>;
 					}}
 				</Context.Consumer>
 				<hr className="my-4" />

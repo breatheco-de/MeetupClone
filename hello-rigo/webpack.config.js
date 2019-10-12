@@ -27,13 +27,17 @@ module.exports = {
               loader: "sass-loader" // compiles Sass to CSS
           }]
         }, //css only files
-        { 
+        {
           test: /\.(png|svg|jpg|gif)$/, use: {
             loader: 'file-loader',
-            options: { name: '[name].[ext]' } 
+            options: { name: '[name].[ext]' }
           }
         }, //for images
-        { test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/, use: ['file-loader'] } //for fonts
+        { test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/, use: ['file-loader'] }, //for fonts
+        {
+            test: /\.mp4$/,
+        use: 'file-loader?name=videos/[name].[ext]',
+        } // for mp4 video (I added this one)
     ]
   },
   resolve: {
@@ -57,7 +61,7 @@ module.exports = {
       Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown"
     }),
     new HtmlWebpackPlugin({
-        favicon: '4geeks.ico',
+        favicon: 'redm.ico',
         template: 'template.html'
     }),
     new PrettierPlugin({

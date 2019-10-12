@@ -4,21 +4,33 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Card, CardImg, CardBody, CardHeader, CardText, Button, Row, Col } from "reactstrap";
 import Moment from "react-moment";
+// import { peopleDancing } from "../../img/peopledancing.mp4";
 
 export class Home extends React.Component {
 	render() {
 		return (
-			<div className="jumbotron">
-				<div className="bg-dark pt-5 pb-5">
-					<div className="text-center text-white">
-						<h1>Fake Meetup.com</h1>
-						<h3>A project by Rebecca Willett</h3>
+			<div>
+				<div className="hero-container">
+					<div className="img-container">
+						<div className="home-hero-image">
+							{/* <img
+                                className="home-hero-image"
+                                src="https://images.pexels.com/photos/708392/pexels-photo-708392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            /> */}
+							{/*<source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" />*/}
+							<div className="home-hero-text">
+								<h2>Join a meetup. Find your people.</h2>
+								<h4>Learn something new, share the things you love, or meet new local friends.</h4>
+							</div>
+						</div>
 					</div>
 				</div>
 				<Context.Consumer>
 					{({ store, actions }) => {
 						return store.events.map((event, index) => {
-							const meetupObj = actions.getMeetupByID(event.meta_keys._meetup);
+							// const meetupObj = [];
+							// const origMeetupObj = actions.getMeetupByID(event.meta_keys._meetup);
+							// const meetupObj = actions.getMeetupByID(event.meta_keys._meetup); // represents Meetup object with same meetup ID as event
 
 							return (
 								<Card
@@ -39,8 +51,9 @@ export class Home extends React.Component {
 											<Moment format="LT" parse="HH:mm:ss" tag="h5">
 												{event.meta_keys.time}
 											</Moment>
-											<p>{event.post_content}</p>
-											{/*<Link to="#"> {meetupObj.post_title}</Link>*/}
+											{event.post_content}
+
+											{/* <Link to="#"> {this.meetupObj.post_title}</Link> */}
 										</CardText>
 									</CardBody>
 								</Card>

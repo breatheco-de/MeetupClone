@@ -29,14 +29,14 @@ export class Layout extends React.Component {
 					<ScrollToTop>
 						<Navbar />
 						<Switch>
-							<Route exact path="/" component={Home} />
-							<Route exact path="/meetups" component={AllMeetups} />
-							<Route path="/event/:eid" component={Event} />
-							<Route path="/meetup/:mid" component={Meetup} />
-							<Route path="/eventdetail" component={eventDetail} />
+							<Route exact path="/" component={Home} /> {/* list of all events */}
+							<Route exact path="/meetups" component={AllMeetups} /> {/* list of all meetups */}
+							<Route path="/event/:eid" component={Event} /> {/* info of 1 event */}
+							<Route path="/meetup/:mid" component={Meetup} /> {/* info of 1 meetup */}
+							{/*<Route path="/eventdetail" component={eventDetail} /> */}
 							{/*<Route path="/meetupdetail" component={meetupDetail} />*/}
-							<Route path="/demo" component={Demo} />
-							<Route path="/single/:theid" component={Single} />
+							{/* <Route path="/demo" component={Demo} /> */}
+							{/* <Route path="/single/:theid" component={Single} /> */}
 							{/* /meetup/:meetupid */}
 							<Route render={() => <h1>Not found!</h1>} />
 						</Switch>
