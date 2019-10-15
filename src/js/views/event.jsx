@@ -13,18 +13,21 @@ export class Event extends React.Component {
 					{({ store, actions }) => {
 						let eidNumber = this.props.match.params.eid;
 						eidNumber = parseInt(eidNumber.replace(/[^a-zA-Z0-9]/g, ""));
-						var eventObj = [];
-						//eventObj = actions.getEvents(eidNumber);
-						console.log("eventObj ", this);
-
-						// console.log("this.props.match.params.eid  ", this.props.match.params.eid);
-						// console.log("eventObj ", eventObj);
-						// if (eventObj.length > 0) {
-						// 	console.log(eventObj.ID);
-						// }
-						// return <p>{eventObj.ID}</p>;
+						let obj = "something";
+						actions.getEvents(eidNumber, function(eobj) {
+							obj = eobj;
+							console.log("obj from callback", obj);
+							if (obj.length > 0) {
+								return (
+									<div>
+										<p>return inside </p>
+									</div>
+								);
+							}
+						});
 					}}
 				</Context.Consumer>
+				{/* <p>hello there {this.obj.ID}</p> */}
 				<hr className="my-4" />
 				<Link to="/">
 					<span className="btn btn-primary btn-lg" href="#" role="button">

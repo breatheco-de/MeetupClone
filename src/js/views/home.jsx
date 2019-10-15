@@ -25,42 +25,51 @@ export class Home extends React.Component {
 						</div>
 					</div>
 				</div>
-				<Context.Consumer>
-					{({ store, actions }) => {
-						return store.events.map((event, index) => {
-							// const meetupObj = [];
-							// const origMeetupObj = actions.getMeetupByID(event.meta_keys._meetup);
-							// const meetupObj = actions.getMeetupByID(event.meta_keys._meetup); // represents Meetup object with same meetup ID as event
+				<div className="row">
+					<div className="col-sm-6">
+						<Context.Consumer>
+							{({ store, actions }) => {
+								return store.events.map((event, index) => {
+									// const meetupObj = [];
+									// const origMeetupObj = actions.getMeetupByID(event.meta_keys._meetup);
+									// const meetupObj = actions.getMeetupByID(event.meta_keys._meetup); // represents Meetup object with same meetup ID as event
 
-							return (
-								<Card
-									className="text-center mb-5 mt-5 mx-auto"
-									style={{ width: "40%", height: "auto" }}
-									key={index}>
-									<CardImg
-										top
-										src="https://images.pexels.com/photos/1020323/pexels-photo-1020323.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940older.js/100px180"
-									/>
-									<CardBody>
-										<CardHeader tag="h3">{event.post_title}</CardHeader>
-										<CardText>
-											<Moment format="MM/DD/YYYY" tag="h5">
-												{event.meta_keys.day}
-											</Moment>
-											<br />
-											<Moment format="LT" parse="HH:mm:ss" tag="h5">
-												{event.meta_keys.time}
-											</Moment>
-											{event.post_content}
+									return (
+										<Card
+											className="text-center something"
+											// style={{ width: "40%", height: "auto" }}
+											key={index}>
+											<CardImg
+												top
+												src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+											/>
+											<CardBody>
+												<CardHeader tag="h3" className="card-title">
+													{event.post_title}
+												</CardHeader>
+												<CardText>
+													<div className="event-date">
+														<Moment format="MM/DD/YYYY" tag="h5">
+															{event.meta_keys.day}
+														</Moment>
+													</div>
+													<div className="event-time">
+														<Moment format="LT" parse="HH:mm:ss" tag="h5">
+															{event.meta_keys.time}
+														</Moment>
+													</div>
+													{event.post_content}
 
-											{/* <Link to="#"> {this.meetupObj.post_title}</Link> */}
-										</CardText>
-									</CardBody>
-								</Card>
-							);
-						});
-					}}
-				</Context.Consumer>
+													{/* <Link to="#"> {this.meetupObj.post_title}</Link> */}
+												</CardText>
+											</CardBody>
+										</Card>
+									);
+								});
+							}}
+						</Context.Consumer>
+					</div>
+				</div>
 			</div>
 		);
 	}
