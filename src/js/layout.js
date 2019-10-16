@@ -8,6 +8,7 @@ import { eventDetail } from "./views/eventdetail.jsx";
 import { meetupDetail } from "./views/meetupdetail.jsx";
 import { Meetup } from "./views/meetup.jsx";
 import { Event } from "./views/event.jsx";
+import { About } from "./views/about.jsx";
 
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
@@ -24,13 +25,14 @@ export class Layout extends React.Component {
 		const basename = process.env.BASENAME || "";
 
 		return (
-			<div className="d-flex flex-column h-100">
+			<div className="d-flex flex-column h-100 layout-div">
 				<BrowserRouter basename={basename}>
 					<ScrollToTop>
 						<Navbar />
 						<Switch>
 							<Route exact path="/" component={Home} /> {/* list of all events */}
 							<Route exact path="/meetups" component={AllMeetups} /> {/* list of all meetups */}
+							<Route exact path="/about" component={About} />
 							<Route path="/event/:eid" component={Event} /> {/* info of 1 event */}
 							<Route path="/meetup/:mid" component={Meetup} /> {/* info of 1 meetup */}
 							{/*<Route path="/eventdetail" component={eventDetail} /> */}

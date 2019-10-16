@@ -17,17 +17,17 @@ export class Event extends React.Component {
 						actions.getEvents(eidNumber, function(eobj) {
 							obj = eobj;
 							console.log("obj from callback", obj);
-							if (obj.length > 0) {
-								return (
-									<div>
-										<p>return inside </p>
-									</div>
-								);
-							}
+							// if (obj.length > 0) {
+							return (
+								<div>
+									<p>return inside context consumer </p>
+								</div>
+							);
+							// }
 						});
 					}}
 				</Context.Consumer>
-				{/* <p>hello there {this.obj.ID}</p> */}
+				<p>return outside context consumer</p>
 				<hr className="my-4" />
 				<Link to="/">
 					<span className="btn btn-primary btn-lg" href="#" role="button">

@@ -6,7 +6,7 @@ export class Navbar extends React.Component {
 	render() {
 		return (
 			<nav className="navbar navbar-expand-lg">
-				<a className="navbar-brand nav-title" href="#">
+				<a className="navbar-brand nav-title" href="/">
 					Meetup [Clone]
 				</a>
 				<button
@@ -32,6 +32,11 @@ export class Navbar extends React.Component {
 						<li className="nav-item">
 							<a className="nav-link2" href="/meetups">
 								See all meetups
+							</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link2" href="/about">
+								About
 							</a>
 						</li>
 					</ul>
