@@ -115,6 +115,7 @@ export class AllMeetups extends React.Component {
 						}}
 					</Context.Consumer>
 				</div>
+				<div className="white-space-row" />
 			</div>
 		);
 	}

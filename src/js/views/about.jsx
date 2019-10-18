@@ -13,7 +13,7 @@ export class About extends React.Component {
 				<div className="hero-container">
 					<div className="img-container">
 						<div className="about-hero-image">
-							<div className="about-hero-text">
+							<div className="hero-text">
 								<h2>A simple clone of Meetup.com. Just because.</h2>
 								{/* <h4>Learn something new, share the things you love, or meet new local friends.</h4> */}
 							</div>

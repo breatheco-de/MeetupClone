@@ -72,7 +72,7 @@ export class Home extends React.Component {
 				<div className="hero-container">
 					<div className="img-container">
 						<div className="home-hero-image">
-							<div className="home-hero-text">
+							<div className="hero-text">
 								<h2>Join a meetup. Find your people.</h2>
 								<h4>Learn something new, share the things you love, or meet new local friends.</h4>
 							</div>
