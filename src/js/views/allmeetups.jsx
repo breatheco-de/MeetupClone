@@ -87,22 +87,23 @@ export class AllMeetups extends React.Component {
 				<div className="row card-row">
 					<Context.Consumer>
 						{({ store }) => {
-							return store.meetups.map((meetup, index) => {
+							return store.groups.map((group, index) => {
+								let midLink = "/meetup/:" + group.ID;
 								return (
 									<div className="col-sm-4 card-column" key={index}>
 										<div className="card d-flex event-card">
 											<img className="card-img-top" src={this.randomPic()} alt="Card image cap" />
 											<div className="card-body">
-												<h5 className="card-title">{meetup.post_title}</h5>
+												<h5 className="card-title">{group.post_title}</h5>
 												<p className="attending">
 													<i className="fas fa-map-marker-alt" /> {this.randomPlace()}
 												</p>
-												<p>{meetup.post_content}</p>
+												<p>{group.post_content}</p>
 												<p className="attending">
 													<i className="fas fa-user-friends" />{" "}
 													{Math.floor(Math.random() * 100 + 1)} members
 												</p>
-												<a href="/meetup/:mid" className="btn stretched-link hidden-btn" />
+												<Link to={midLink} className="btn stretched-link hidden-btn" />
 
 												{/* <a href="#" className="btn btn-primary">
 													Go somewhere

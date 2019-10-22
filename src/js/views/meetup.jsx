@@ -110,32 +110,34 @@ export class Meetup extends React.Component {
 										</div>
 										<div className="row meetup-detail-row attending">
 											<div className="col-sm-1 ">
-												<p className="attending">
+												<p className="attending inline-block">
 													<i className="fas fa-map-marker-alt" />
 												</p>
 											</div>
 											<div className="col-sm-11 ">
-												<p>{this.randomPlace()}</p>
+												<p className="inline-block">{this.randomPlace()}</p>
 											</div>
 										</div>
 										<div className="row meetup-detail-row attending">
 											<div className="col-sm-1 ">
-												<p className="attending">
+												<p className="attending inline-block">
 													<i className="fas fa-user-friends" />
 												</p>
 											</div>
 											<div className="col-sm-11 ">
-												<p>{Math.floor(Math.random() * 100 + 1)} members</p>
+												<p className="inline-block">
+													{Math.floor(Math.random() * 100 + 1)} members
+												</p>
 											</div>
 										</div>
 										<div className="row meetup-detail-row attending">
 											<div className="col-sm-1 ">
-												<p className="attending">
+												<p className="attending inline-block">
 													<i className="fas fa-user" />
 												</p>
 											</div>
 											<div className="col-sm-11 ">
-												<p>
+												<p className="inline-block">
 													Organized by <strong>{this.randomPerson()}</strong>
 												</p>
 											</div>
@@ -168,31 +170,34 @@ export class Meetup extends React.Component {
 								console.log("meetup.jsx -- eventObj from callback ", eventObj);
 							});
 							return store.events.map((event, index) => {
+								let eidLink = "/event/:" + event.ID;
 								return (
-									<div className="col-sm-7 meetup-card-column" key={index}>
-										<div className="card d-flex event-card">
-											<img className="card-img-top" src={this.randomPic()} alt="Card image cap" />
-											<div className="card-body">
-												<span className="date-time">
-													<Moment format="MMM DD, ">{event.meta_keys.day}</Moment>
-													<Moment format="LT" parse="HH:mm:ss">
-														{event.meta_keys.time}
-													</Moment>
-												</span>
-												<h5 className="card-title">{event.post_title}</h5>
-												<p>Meetup Group</p>
-												<p className="attending">
-													<i className="fas fa-map-marker-alt" /> {this.randomPlace()}
-												</p>
-												<p className="attending">
-													<i className="fas fa-user-friends" />{" "}
-													{Math.floor(Math.random() * 100 + 1)} attending
-												</p>
-												<a href="#" className="btn stretched-link hidden-btn" />
-
-												{/* <a href="#" className="btn btn-primary">
-													Go somewhere
-												</a> */}
+									<div className="row meetup-event-row" key={index}>
+										<div className="col-sm-7 meetup-card-column">
+											<div className="card d-flex event-card">
+												<img
+													className="card-img-top"
+													src={this.randomPic()}
+													alt="Card image cap"
+												/>
+												<div className="card-body">
+													<span className="date-time">
+														<Moment format="MMM DD, ">{event.meta_keys.day}</Moment>
+														<Moment format="LT" parse="HH:mm:ss">
+															{event.meta_keys.time}
+														</Moment>
+													</span>
+													<h5 className="card-title">{event.post_title}</h5>
+													{/* <p>Meetup Group</p> */}
+													<p className="attending">
+														<i className="fas fa-map-marker-alt" /> {this.randomPlace()}
+													</p>
+													<p className="attending">
+														<i className="fas fa-user-friends" />{" "}
+														{Math.floor(Math.random() * 100 + 1)} attending
+													</p>
+													<Link to={eidLink} className="btn stretched-link hidden-btn" />
+												</div>
 											</div>
 										</div>
 									</div>

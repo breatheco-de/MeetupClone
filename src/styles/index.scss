@@ -163,7 +163,7 @@ a.nav-title {
     position: absolute;
     top: 0;
     border-radius: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     height: 400px;
 }
 
@@ -410,6 +410,10 @@ a.nav-title {
     background-color: #f6f7f8;
 }
 
+.inline-block {
+    display: inline-block;
+}
+
 .meetup-desc-title {
     margin-bottom: 1rem;
 }
@@ -423,6 +427,10 @@ a.nav-title {
     padding-left: 80px;
     padding-right: 80px;
     padding-bottom: 2rem;
+}
+
+.meetup-event-row {
+    margin-bottom: 30px;
 }
 
 .meetup-card-column {

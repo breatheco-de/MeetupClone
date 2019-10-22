@@ -72,19 +72,25 @@ export class Event extends React.Component {
 						eidNumber = parseInt(eidNumber.replace(/[^a-zA-Z0-9]/g, ""));
 						let obj = "";
 						let meetObj = "";
+						let midLink = "";
 						actions.get1Event(eidNumber, function(eobj) {
 							obj = eobj;
 							console.log("obj from callback", obj);
-							if (obj && obj.meta_keys._meetup) {
-								let eventMeetupID = parseInt(obj && obj.meta_keys._meetup);
+							if (obj && obj.meta_keys._group) {
+								let eventMeetupID = parseInt(obj && obj.meta_keys._group);
 								console.log("eventMeetupID ", eventMeetupID); // LOGS CORRECTLY
 								actions.getMeetupByID(eventMeetupID, function(mobj) {
 									meetObj = mobj;
 									console.log("meetObj ", meetObj); // LOGS CORRECTLY
 									console.log("1meetObj && meetObj.post_title ", meetObj && meetObj.post_title); // LOGS CORRECTLY
+									console.log("2meetObj && meetObj.ID ", meetObj && meetObj.ID);
+									midLink = "/meetup/:" + meetObj.ID;
 									return meetObj;
 								});
-								console.log("2meetObj && meetObj.post_title ", meetObj && meetObj.post_title); // LOGS CORRECTLY
+								console.log("3meetObj && meetObj.post_title ", meetObj && meetObj.post_title); // LOGS CORRECTLY
+								console.log("4meetObj && meetObj.ID ", meetObj && meetObj.ID);
+								// midLink = "/meetup/:" + meetObj.ID;
+								console.log("midLink ", midLink);
 							}
 						});
 						return (
@@ -101,7 +107,7 @@ export class Event extends React.Component {
 												</p>
 												<h2>{obj && obj.post_title}</h2>
 												<p>
-													Hosted by <Link to="/meetups">{meetObj && meetObj.post_title}</Link>
+													Hosted by <Link to={midLink}>{meetObj && meetObj.post_title}</Link>
 												</p>
 											</div>
 										</div>

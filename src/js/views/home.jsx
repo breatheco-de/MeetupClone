@@ -46,7 +46,6 @@ export class Home extends React.Component {
 			"https://images.unsplash.com/photo-1416453072034-c8dbfa2856b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1058&q=80"
 		];
 		var randomPhoto = photoArray[Math.floor(Math.random() * photoArray.length)];
-		console.log(randomPhoto);
 		return randomPhoto;
 	};
 
@@ -62,7 +61,6 @@ export class Home extends React.Component {
 			"Kendall, FL"
 		];
 		var randomCity = placeArray[Math.floor(Math.random() * placeArray.length)];
-		console.log(randomCity);
 		return randomCity;
 	};
 
@@ -89,10 +87,14 @@ export class Home extends React.Component {
 					<Context.Consumer>
 						{({ store, actions }) => {
 							return store.events.map((event, index) => {
-								// const meetupObj = [];
-								// const origMeetupObj = actions.getMeetupByID(event.meta_keys._meetup);
-								// const meetupObj = actions.getMeetupByID(event.meta_keys._meetup); // represents Meetup object with same meetup ID as event
-
+								let meetObj = "";
+								let eidLink = "/event/:" + event.ID;
+								actions.getMeetupByID(event.meta_keys._group, function(mobj) {
+									meetObj = mobj;
+									console.log("home1 meetObj", meetObj);
+									console.log("home2 meetObj && meetObj.post_title ", meetObj && meetObj.post_title);
+									return meetObj;
+								});
 								return (
 									<div className="col-sm-4 card-column" key={index}>
 										<div className="card d-flex event-card">
@@ -105,7 +107,7 @@ export class Home extends React.Component {
 													</Moment>
 												</span>
 												<h5 className="card-title">{event.post_title}</h5>
-												<p>Meetup Group</p>
+												<p>{meetObj && meetObj.post_title}</p>
 												<p className="attending">
 													<i className="fas fa-map-marker-alt" /> {this.randomPlace()}
 												</p>
@@ -113,7 +115,7 @@ export class Home extends React.Component {
 													<i className="fas fa-user-friends" />{" "}
 													{Math.floor(Math.random() * 100 + 1)} attending
 												</p>
-												<a href="#" className="btn stretched-link hidden-btn" />
+												<Link to={eidLink} className="btn stretched-link hidden-btn" />
 
 												{/* <a href="#" className="btn btn-primary">
 													Go somewhere
