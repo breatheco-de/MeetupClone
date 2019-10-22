@@ -45,7 +45,6 @@ export class Event extends React.Component {
 			"https://images.unsplash.com/photo-1416453072034-c8dbfa2856b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1058&q=80"
 		];
 		var randomPhoto = photoArray[Math.floor(Math.random() * photoArray.length)];
-		console.log(randomPhoto);
 		return randomPhoto;
 	};
 
@@ -61,13 +60,8 @@ export class Event extends React.Component {
 			"Kendall, FL"
 		];
 		var randomCity = placeArray[Math.floor(Math.random() * placeArray.length)];
-		console.log(randomCity);
 		return randomCity;
 	};
-
-	// changeButtonClass = e => {
-
-	// };
 
 	render() {
 		return (
@@ -76,10 +70,22 @@ export class Event extends React.Component {
 					{({ store, actions }) => {
 						let eidNumber = this.props.match.params.eid;
 						eidNumber = parseInt(eidNumber.replace(/[^a-zA-Z0-9]/g, ""));
-						let obj = "something";
-						actions.getEvents(eidNumber, function(eobj) {
+						let obj = "";
+						let meetObj = "";
+						actions.get1Event(eidNumber, function(eobj) {
 							obj = eobj;
-							console.log("obj from callback", obj); // obj comes back undefined even though it should be receiving an object.
+							console.log("obj from callback", obj);
+							if (obj && obj.meta_keys._meetup) {
+								let eventMeetupID = parseInt(obj && obj.meta_keys._meetup);
+								console.log("eventMeetupID ", eventMeetupID); // LOGS CORRECTLY
+								actions.getMeetupByID(eventMeetupID, function(mobj) {
+									meetObj = mobj;
+									console.log("meetObj ", meetObj); // LOGS CORRECTLY
+									console.log("1meetObj && meetObj.post_title ", meetObj && meetObj.post_title); // LOGS CORRECTLY
+									return meetObj;
+								});
+								console.log("2meetObj && meetObj.post_title ", meetObj && meetObj.post_title); // LOGS CORRECTLY
+							}
 						});
 						return (
 							<div className="top-div">
@@ -95,7 +101,7 @@ export class Event extends React.Component {
 												</p>
 												<h2>{obj && obj.post_title}</h2>
 												<p>
-													Hosted by <Link to="/meetups">This Meetup</Link>
+													Hosted by <Link to="/meetups">{meetObj && meetObj.post_title}</Link>
 												</p>
 											</div>
 										</div>

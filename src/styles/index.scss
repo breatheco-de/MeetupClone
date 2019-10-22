@@ -7,9 +7,6 @@
     // overflow: auto;
 }
 
-// .top-div {
-//     min-height: 100vh;
-// }
 .layout-div {
     position: relative;
     margin: 0;
@@ -308,7 +305,6 @@ a.nav-title {
     padding-right: 80px;
     padding-top: 35px;
     padding-bottom: 2rem;
-    
 }
 
 .event-row2 {
@@ -321,7 +317,7 @@ a.nav-title {
 .event-row3 {
     padding-left: 80px;
     padding-right: 80px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     padding-top: 20px;
     background-color: #f6f7f8;
 }
@@ -333,6 +329,10 @@ a.nav-title {
 .event-calendar-icon {
     font-size: 4rem;
     color: #e9425f;
+}
+
+.event-detail-row {
+    padding-bottom: 0;
 }
 
 .event-detail-row h2 {
@@ -358,13 +358,77 @@ a.nav-title {
     border: 2px #3c808d;
 }
 
-.event-details-row {
-    padding-bottom: 0;
-}
-
 .event-img {
     object-fit: cover;
-    height: auto;
+    height: 300px;
+    width: 100%;
+}
+
+// ----------------------------------- MEETUP
+
+.top-meetup-div {
+    background-color: #f6f7f8;
+}
+
+// .meetup-img-container {
+//     padding-bottom: 20px;
+//     padding-right: 20px;
+// }
+
+.meetup-img {
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.meetup-detail-row h2 {
+    font-family: 'Changa One', cursive;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.meetup-row1 {
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 35px;
+    padding-bottom: 2rem;
+    background-color: white;
+}
+
+.meetup-row2 {
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    background-color: #f6f7f8;
+}
+
+.meetup-row3 {
+    padding-left: 95px;
+    padding-right: 80px;
+    background-color: #f6f7f8;
+}
+
+.meetup-desc-title {
+    margin-bottom: 1rem;
+}
+
+.meetup-upcoming-title {
+    margin-bottom: 0;
+}
+
+.meetup-bottom-section {
+    background-color: #f6f7f8;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 2rem;
+}
+
+.meetup-card-column {
+    padding: 0;
+    height: 400px;
+    margin-top: 30px;
 }
 
 // ------------------------- Footer

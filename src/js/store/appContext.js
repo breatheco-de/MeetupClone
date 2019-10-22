@@ -41,7 +41,7 @@ const injectContext = PassedComponent => {
 				});
 
 			// fetch meetups
-			fetch("https://assets.breatheco.de/apis/fake/meetup/meetups")
+			fetch("https://assets.breatheco.de/apis/fake/meetup/groups")
 				.then(response => {
 					if (response.status !== 200) {
 						alert("Connection error, status " + response.status);
