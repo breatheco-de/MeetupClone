@@ -22,22 +22,22 @@ export class Navbar extends React.Component {
 				<div className="nav-div collapse navbar-collapse" id="navbarNav">
 					<ul className="navbar-nav">
 						<li className="nav-item active">
-							<a className="nav-link1" href="#">
+							<Link className="nav-link1" to="#">
 								Start a new group <span className="sr-only">(current)</span>
-							</a>
+							</Link>
 						</li>
 						<li className="nav-item nav-link2">
 							<p>|</p>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link2" href="/meetups">
+							<Link className="nav-link2" to="/meetups">
 								See all meetups
-							</a>
+							</Link>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link2" href="/about">
+							<Link className="nav-link2" to="/about">
 								About
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>
