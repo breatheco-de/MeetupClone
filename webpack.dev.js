@@ -9,9 +9,9 @@ module.exports = merge(common, {
     mode: 'development',
     devtool: 'cheap-module-source-map',
     devServer: {
-        contentBase:  './dist',
+        contentBase:  './',
         hot: true,
-        disableHostCheck: true,
+        // disableHostCheck: true,
         historyApiFallback: true
     },
     plugins: [
@@ -32,3 +32,8 @@ module.exports = merge(common, {
         new Dotenv()
     ]
 });
+
+        // contentBase:  './dist',
+        // hot: true,
+        // disableHostCheck: true,
+        // historyApiFallback: true
