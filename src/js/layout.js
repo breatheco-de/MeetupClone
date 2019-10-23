@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, hashHistory } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home.jsx";
@@ -26,7 +26,7 @@ export class Layout extends React.Component {
 
 		return (
 			<div className="d-flex flex-column h-100 layout-div">
-				<BrowserRouter basename={basename}>
+				<BrowserRouter basename={basename} history={hashHistory}>
 					<ScrollToTop>
 						<Navbar />
 						<Switch>
@@ -35,13 +35,9 @@ export class Layout extends React.Component {
 							<Route exact path="/about" component={About} />
 							<Route path="/event/:eid" component={Event} /> {/* info of 1 event */}
 							<Route path="/meetup/:mid" component={Meetup} /> {/* info of 1 meetup */}
-							{/*<Route path="/eventdetail" component={eventDetail} /> */}
-							{/*<Route path="/meetupdetail" component={meetupDetail} />*/}
-							{/* <Route path="/demo" component={Demo} /> */}
-							{/* <Route path="/single/:theid" component={Single} /> */}
-							{/* /meetup/:meetupid */}
 							{/* <Route render={() => <h1>Not found! This is in Layout.js</h1>} /> */}
 							<Route component={Home} />
+							{/* <Route render={() => <h1>Not found! This is in Layout.js</h1>} /> */}
 						</Switch>
 						<Footer />
 					</ScrollToTop>
