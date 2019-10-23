@@ -9,9 +9,9 @@ module.exports = merge(common, {
     mode: 'development',
     devtool: 'cheap-module-source-map',
     devServer: {
-        contentBase:  './',
+        contentBase:  './dist',
         hot: true,
-        // disableHostCheck: true,
+        disableHostCheck: true,
         historyApiFallback: true
     },
     plugins: [
