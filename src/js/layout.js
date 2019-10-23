@@ -41,8 +41,7 @@ export class Layout extends React.Component {
 							{/* <Route path="/single/:theid" component={Single} /> */}
 							{/* /meetup/:meetupid */}
 							{/* <Route render={() => <h1>Not found! This is in Layout.js</h1>} /> */}
-							<Route render={() => {Home}} />
-
+							<Route component={Home} />
 						</Switch>
 						<Footer />
 					</ScrollToTop>
