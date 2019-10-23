@@ -40,8 +40,7 @@ export class Layout extends React.Component {
 							{/* <Route path="/demo" component={Demo} /> */}
 							{/* <Route path="/single/:theid" component={Single} /> */}
 							{/* /meetup/:meetupid */}
-							<Route path="*" component={Home}/>
-							{/* <Route render={() => <h1>Not found! This is in Layout.js</h1>} /> */}
+							<Route render={() => <h1>Not found! This is in Layout.js</h1>} />
 						</Switch>
 						<Footer />
 					</ScrollToTop>
